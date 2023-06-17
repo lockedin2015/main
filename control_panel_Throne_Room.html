@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Throne Room</title>
+  
+    <!-- Add Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1J4+owV0F2RUXxLY5CqQel+jf4c7zg5/courE5" crossorigin="anonymous">
+  
+    <!-- Add your CSS stylesheets here -->
+    <link rel="stylesheet" href="/control_panel_Throne_Room.css">
+  
+    <!-- Add your JS files here -->
+    <script defer src="/control_panel_The_Guardians.js"></script>
+  
+    <!-- Add Bootstrap JavaScript and its dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1J4+owV0F2RUXxLY5CqQel+jf4c7zg5/courE5" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBud7z3lU/6MfD6LKI3DprR2QIWkkMffU9QMWn17vau2bYg9" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+ 
+    <script type="module">
+      // Initialize Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyCN9d5eRP8uyBz5TGZXL4M46NM4GqTtpMg",
+        appId: "1:451268923694:web:de2ee4bf7d100a7f2beabf",
+        authDomain: "lockedinclues.firebaseapp.com",
+        measurementId: "G-K1P8EK2NCT",
+        messagingSenderId: "451268923694",
+        projectId: "lockedinclues",
+        storageBucket: "lockedinclues.appspot.com",
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid">
+    <div class="row">
+      <!-- Column 1: Roomflow -->
+      <div class="col-md-2">
+        <h3>Roomflow</h3>
+        <button id="add-puzzle-btn" data-bs-toggle="modal" data-bs-target="#addPuzzleModal">Add Puzzle</button>
+        <ul id="puzzle-list">
+          <!-- List of all the puzzles -->
+        </ul>
+      </div>
+
+        <!-- Column 2: Clues -->
+      <div class="col-md-2">
+        <h3>Clues</h3>
+        <ul id="clues-section">
+          <!-- List of all the clues for the selected puzzle -->
+        </ul>
+        <button id="mark-complete-btn">Mark Complete</button>
+      </div>
+
+         <!-- Column 3: Feed -->
+      <div class="col-md-2">
+        <h3>Feed</h3>
+        <div class="chatbox">
+          <div class="chat-header">
+            <h3>Chat</h3>
+            <button id="close-chat">X</button>
+          </div>
+          <div class="chat-messages" id="message-feed">
+            <!-- messages will be added dynamically using JavaScript -->
+          </div>
+          <form id="message-form">
+            <input type="text" id="message-input" placeholder="Type a message...">
+            <button type="submit" id="send-message-btn">Send</button>
+          </form>
+        </div>
+        <button id="clear-screen-btn">Clear Player Screen</button>
+      </div>
+
+             <!-- Column 4: Controls -->
+      <div class="col-md-2">
+        <h3>Controls</h3>
+        <div id="timer-controls">
+          <h3>Timer</h3>
+          <button id="subtract-time-btn">-</button>
+          <input type="number" id="timer-input" value="0">
+          <button id="add-time-btn">+</button>
+          <button id="start-btn">Start Game</button>
+          <button id="finish-room-btn">Finish Room</button>
+          <button id="game-over-btn">Game Over</button>
+          <button id="reset-btn">Reset</button>
+        </div>
+        <h3>Clues Available</h3>
+        <div id="clues-available">
+          <!-- Clues availability icons will be added dynamically using JavaScript -->
+        </div>
+        <button id="video-brief-btn">Video Brief</button>
+        <div id="audio-controls">
+          <h3>Audio Mixer</h3>
+          <!-- Volume controls and buttons for sounds -->
+        </div>
+      </div>
+
+         <!-- Column 5: Audio and Video -->
+      <div class="col-md-2">
+        <div id="video-player"></div>
+        <button id="mute-btn">Mute</button>
+        <button id="play-sound-btn">Play Sound</button>
+        <!-- Add video player here -->
+      </div>
+    </div>
+  </div>
+
+    <div>
+      <h2>Wins: <span id="ThroneRoom-wins">0</span></h2>
+      <button id="ThroneRoom-win-button">Add Win</button>
+    </div>
+    
+    <div>
+      <h2>Losses: <span id="ThroneRoom-losses">0</span></h2>
+      <button id="ThroneRoom-loss-button">Add Loss</button>
+    </div>
+    
+<!-- Add Puzzle Modal -->
+  <div class="modal fade" id="addPuzzleModal" tabindex="-1" aria-labelledby="addPuzzleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addPuzzleModalLabel">Add Puzzle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="puzzle-form">
+            <div class="mb-3">
+              <label for="puzzle-name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="puzzle-name">
+            </div>
+            <div class="mb-3">
+              <label for="puzzle-icon" class="form-label">Icon</label>
+              <input type="text" class="form-control" id="puzzle-icon">
+            </div>
+            <div class="mb-3">
+              <label for="puzzle-answer" class="form-label">Answer</label>
+              <input type="text" class="form-control" id="puzzle-answer">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="apply-puzzle-btn">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Puzzle List Modal -->
+  <div class="modal fade" id="puzzleListModal" tabindex="-1" aria-labelledby="puzzleListModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="puzzleListModalLabel">Puzzle List</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="puzzle-list-modal" class="list-group">
+            <!-- Puzzle list items will be added dynamically using JavaScript -->
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clue Modal -->
+  <div class="modal fade" id="clueModal" tabindex="-1" aria-labelledby="clueModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="clueModalLabel">Clues</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row" id="clues-section-modal">
+            <!-- Clues for the selected puzzle will be added dynamically using JavaScript -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Rate Modal -->
+  <div class="modal fade" id="successRateModal" tabindex="-1" aria-labelledby="successRateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successRateModalLabel">Success Rate</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Wins</h3>
+              <h2 id="success-rate-wins">0</h2>
+            </div>
+            <div class="col-md-6">
+              <h3>Losses</h3>
+              <h2 id="success-rate-losses">0</h2>
+            </div>
+          </div>
+          <h3>Success Rate</h3>
+          <h2 id="success-rate">N/A</h2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

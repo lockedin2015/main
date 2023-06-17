@@ -1,0 +1,274 @@
+/* Add your custom styles here */
+.container-fluid {
+    margin-top: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  #ThroneRoom-win-button,
+  #ThroneRoom-loss-button {
+    margin-bottom: 10px;
+  }
+  
+  .col-md-2,
+  .col-md-3 {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  .col-md-2 h3,
+  .col-md-3 h3 {
+    margin-top: 0;
+  }
+  
+  .chatbox {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .chat-header h3 {
+    margin: 0;
+  }
+  
+  .chat-messages {
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+  }
+  
+  #message-form {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  #message-input {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  #clear-screen-btn {
+    margin-bottom: 10px;
+  }
+  
+  #timer-controls h3,
+  #audio-controls h3 {
+    margin-top: 0;
+  }
+  
+  #clues-available {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  
+  .clue-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .clue-icon img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
+  
+  #video-brief-btn {
+    margin-bottom: 10px;
+  }
+  
+  #audio-controls button {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  
+  #play-sound-btn {
+    margin-bottom: 10px;
+  }
+  
+  #mute-btn {
+    margin-bottom: 10px;
+  }
+  /* Add your custom styles here */
+body {
+    background-color: #f5f5f5; /* Dark pale gray */
+    font-family: "Maven Pro", sans-serif;
+    color: #eee; /* Light gray-off white */
+  }
+  
+  .column {
+    margin: 10px;
+    padding: 10px;
+    background-color: #222; /* Black */
+    border-radius: 10px;
+  }
+  
+  .column h2 {
+    text-align: center;
+  }
+  
+  .container-fluid {
+    display: flex;
+  }
+  
+  .roomflow-column {
+    flex: 1;
+  }
+  
+  .clues-column,
+  .feed-column,
+  .controls-column {
+    flex: 1;
+    max-width: 50%;
+  }
+  
+  .clues-column {
+    margin-right: 10px;
+  }
+  
+  .feed-column {
+    flex-grow: 2;
+  }
+  
+  .controls-column {
+    margin-left: 10px;
+  }
+  
+  .puzzle-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .puzzle-form input,
+  .puzzle-form button {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .puzzle-form button {
+    background-color: purple;
+    color: #eee;
+  }
+  
+  .chatbox {
+    overflow-y: auto;
+    max-height: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #111;
+  }
+  
+  .message-form {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .message-form input {
+    flex: 1;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .message-form button {
+    background-color: purple;
+    color: #eee;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .clear-screen-btn {
+    margin-bottom: 10px;
+    background-color: purple;
+    color: #eee;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .timer-controls h3,
+  .audio-controls h3 {
+    margin-top: 0;
+  }
+  
+  .clues-available {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  
+  .clue-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .clue-icon img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
+  
+  .video-brief-btn,
+  .audio-controls button,
+  .reset-btn {
+    margin-bottom: 10px;
+    background-color: purple;
+    color: #eee;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .video-brief-btn {
+    width: 100%;
+  }
+  
+  .mute-btn {
+    margin-bottom: 10px;
+    background-color: purple;
+    color: #eee;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .roomflow-column,
+  .clues-column,
+  .feed-column,
+  .controls-column {
+    box-sizing: border-box;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .container-fluid {
+      flex-direction: column;
+    }
+  
+    .clues-column,
+    .feed-column,
+    .controls-column {
+      max-width: none;
+    }
+  }
+  

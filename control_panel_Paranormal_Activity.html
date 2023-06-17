@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Paranormal Activity</title>
+  
+    <!-- Add Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1J4+owV0F2RUXxLY5CqQel+jf4c7zg5/courE5" crossorigin="anonymous">
+  
+    <!-- Add your CSS stylesheets here -->
+    <link rel="stylesheet" href="../public/style.css">
+  
+    <!-- Add your JS files here -->
+    <script defer src="../public/control_panel_Paranormal_Activity.js"></script>
+
+  
+    <!-- Add Bootstrap JavaScript and its dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1J4+owV0F2RUXxLY5CqQel+jf4c7zg5/courE5" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBud7z3lU/6MfD6LKI3DprR2QIWkkMffU9QMWn17vau2bYg9" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+ 
+    <script>
+      // Initialize Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyCN9d5eRP8uyBz5TGZXL4M46NM4GqTtpMg",
+        authDomain: "lockedinclues.firebaseapp.com",
+        projectId: "lockedinclues",
+        storageBucket: "lockedinclues.appspot.com",
+        messagingSenderId: "451268923694",
+        appId: "1:451268923694:web:de2ee4bf7d100a7f2beabf",
+        measurementId: "G-K1P8EK2NCT"
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+  
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Column 1: Roomflow -->
+        <div class="col-md-2">
+          <h3>Roomflow</h3>
+          <button id="add-puzzle-btn">Add Puzzle</button>
+          <!-- Add button to add puzzles and puzzle list here -->
+        </div>
+
+        <!-- Column 2: Clues -->
+        <div class="col-md-3">
+          <h3>Clues</h3>
+          <ul id="clues-list">
+            <!-- List of all the hints for the selected puzzle -->
+          </ul>
+          <button id="mark-complete-btn">Mark Complete</button>
+          <!-- Add puzzle hints and mark complete button here -->
+        </div>
+
+        <!-- Column 3: Feed -->
+        <div class="col-md-3">
+          <h3>Feed</h3>
+          <ul id="message-feed">
+            <!-- Chatbox for writing hints -->
+          </ul>
+          <button id="send-btn">Send</button>
+          <button id="clear-screen-btn">Clear Player Screen</button>
+          <!-- Add chat box, send button, and clear player screen button here -->
+        </div>
+
+        <!-- Column 4: Controls -->
+        <div class="col-md-3">
+          <h3>Controls</h3>
+          <div id="timer-controls">
+            <h3>Timer</h3>
+            <button id="subtract-min-btn">-</button>
+            <input type="number" id="timer-input">
+            <button id="add-min-btn">+</button>
+            <button id="start-btn">Start Game</button>
+            <button id="finish-room-btn">Finish Room</button>
+            <button id="game-over-btn">Game Over</button>
+            <button id="reset-btn">Reset</button>
+          </div>
+            <h3>Clues Available</h3>
+          <!-- Add timer controls, audio controls, and video brief button here -->
+          <!-- Add section for clues available and reset button here -->
+        </div>
+
+        <!-- Column 5: Audio and Video -->
+      <div class="col-md-2">
+        <div id="audio-controls">
+          <h3>Audio Mixer</h3>
+          <!-- Volume controls and buttons for sounds -->
+        </div>
+          <button id="video-brief-btn">Video Brief</button>
+        </div>
+        <div class="col-md-2">
+          <!-- Add video player here -->
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Wins: <span id="Paranormal_Activity-wins">0</span></h2>
+      <button id="Paranormal_Activity-win-button">Add Win</button>
+    </div>
+    
+    <div>
+      <h2>Losses: <span id="Paranormal_Activity-losses">0</span></h2>
+      <button id="Paranormal_Activity-loss-button">Add Loss</button>
+    </div>
+    
+  </body>
+</html>

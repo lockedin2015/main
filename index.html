@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escape Room Game Admin Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="public/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    
+  
+</head>
+<body>
+  <div id="data-display"></div>
+
+ <div class="container">
+      <h1 class="my-4">Escape Room Admin</h1>
+    
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Success Rate</th>
+            <th scope="col">Wins</th>
+            <th scope="col">Losses</th>
+            <th scope="col">Button</th>
+            <th scope="col">Settings</th>
+          </tr>
+        </thead>
+        <tbody>
+   
+          <tr>
+            <td>The Guardians</td>
+            <td id="theGuardiansSuccessRate"></td>
+            <td id="theGuardiansWins"></td>
+            <td id="theGuardiansLosses"></td>
+            <td>
+              <button data-href="/control_panel_The_Guardians.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Manage</button>
+            </td>
+            <td>
+              <button data-href="/settings_The_Guardians.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Settings</button>
+            </td>
+          </tr>
+        <tr>
+          <td>Throne Room</td>
+          <td id="ThroneRoom-success-rate"></td>
+          <td id="ThroneRoom-wins"></td>
+        <td id="ThroneRoom-losses"></td>
+        <td>
+          <button data-href="/control_panel_Throne_Room.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Manage</button>
+        </td>
+          <td>
+            <button data-href="/settings_Throne_Room.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Settings</button>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td>Dracula's Secret</td>
+          <td id="DraculasSecret-success-rate"></td>
+          <td id="DraculasSecret-wins"></td>
+        <td id="DraculasSecret-losses"></td>
+        <td>
+          <button data-href="/control_panel_Draculas_Secret.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Manage</button>
+        </td>
+          <td>
+            <button data-href="/settings_Draculas_Secret.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Settings</button>
+
+        </tr>
+
+        <tr>
+          <td>Indiana Jones</td>
+          <td id="indianaJonesSuccessRate"></td>
+          <td id="indianaJonesWins"></td>
+          <td id="indianaJonesLosses"></td>
+          <td>
+            <button data-href="/control_panel_Indiana_Jones.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Manage</button>
+          </td>
+          <td>
+            <button data-href="/settings_Indiana_Jones.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Settings</button>
+
+        </tr>
+        
+        <tr>
+          <td>Lord of the Rings</td>
+          <td id="lordOfTheRingsSuccessRate"></td>
+          <td id="lordOfTheRingsWins"></td>
+          <td id="lordOfTheRingsLosses"></td>
+          <td>
+            <button data-href="/control_panel_Lord_of_the_Rings.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Manage</button>
+          </td>
+          <td>
+            <button data-href="/settings_Lord_of_the_Rings.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Settings</button>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Paranormal Activity</td>
+          <td id="paranormalActivitySuccessRate"></td>
+          <td id="paranormalActivityWins"></td>
+          <td id="paranormalActivityLosses"></td>
+          <td>
+            <button data-href="/control_panel_Paranormal_Activity.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Manage</button>
+          </td>
+          <td>
+            <button data-href="/settings_Paranormal_Activity.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Settings</button>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td>The Witcher School</td>
+          <td id="theWitcherSchoolSuccessRate"></td>
+          <td id="theWitcherSchoolWins"></td>
+          <td id="theWitcherSchoolLosses"></td>
+          <td>
+            <button data-href="/control_panel_The_Witcher_School.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Manage</button>
+          </td>
+          <td>
+            <button data-href="/settings_The_Witcher_School.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Settings</button>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td>Addams Family</td>
+          <td id="addamsFamilySuccessRate"></td>
+          <td id="addamsFamilyWins"></td>
+          <td id="addamsFamilyLosses"></td>
+          <td>
+            <button data-href="/control_panel_Addams_Family.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Manage</button>
+          </td>
+          <td>
+            <button data-href="/settings_Addams_Family.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Settings</button>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td>Sherlock Holmes</td>
+          <td id="sherlockHolmesSuccessRate"></td>
+          <td id="sherlockHolmesWins"></td>
+          <td id="sherlockHolmesLosses"></td>
+          <td>
+            <button data-href="/control_panel_Sherlock_Holmes.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Manage</button>
+          </td>
+          <td>
+            <button data-href="/settings_Sherlock_Holmes.html" class="btn btn-primary"  onclick="window.open(this.dataset.href)">Settings</button>
+
+          </td>
+        </tr>
+
+     
+      </tbody>
+    </table>
+  </div>
+  <script type="module">
+  
+    function updateSuccessRate(gameId, wins, losses) {
+      let successRate = (wins / (wins + losses)) * 100;
+      document.getElementById(`${gameId}-success-rate`).textContent = successRate.toFixed(2) + "%";
+    }
+  
+    const gameIds = [
+  'theGuardians',
+  'ThroneRoom',
+  'DraculasSecret',
+  'indianaJones',
+  'lordOfTheRings',
+  'paranormalActivity',
+  'theWitcherSchool',
+  'addamsFamily',
+  'sherlockHolmes',
+    ];
+    
+  
+    gameIds.forEach(gameId => {
+  let wins = 0;
+  let losses = 0;
+  
+
+  updateSuccessRate(gameId, wins, losses);
+});
+  </script>
+<script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js"></script>
+
+<script type="module">
+    import { initializeApp } from "firebase/app";
+    import { getFirestore } from "firebase/firestore";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCN9d5eRP8uyBz5TGZXL4M46NM4GqTtpMg",
+        authDomain: "lockedinclues.firebaseapp.com",
+        databaseURL: "https://lockedinclues-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "lockedinclues",
+        storageBucket: "lockedinclues.appspot.com",
+        messagingSenderId: "451268923694",
+        appId: "1:451268923694:web:de2ee4bf7d100a7f2beabf",
+        measurementId: "G-K1P8EK2NCT"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    // Initialize Firestore
+    const db = getFirestore(app);
+    import { collection, getDocs } from "firebase/firestore";
+
+    async function fetchGameDataAndUpdateDashboard() {
+        const gameCollection = collection(db, "lockedinclues");
+        const gameSnapshot = await getDocs(gameCollection);
+        
+        gameSnapshot.forEach((doc) => {
+            const gameData = doc.data();
+            
+            document.getElementById(`${gameData.name}-success-rate`).textContent = gameData.successRate + "%";
+            document.getElementById(`${gameData.name}-wins`).textContent = gameData.wins;
+            document.getElementById(`${gameData.name}-losses`).textContent = gameData.losses;
+        });
+    }
+  
+    fetchGameDataAndUpdateDashboard();
+</script>
+
+ 
+  <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script  src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js" integrity="sha512-AI5A3zIoeRSEEX9z3Vyir8NqSMC1pY7r5h2cE+9J6FLsoEmSSGLFaqMQw8SWvoONXogkfFrkQiJfLeHLz3+HOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script type="module" src="firebaseInit.js"></script>
+  <script type="module" src="public/main.js"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head >
+    <meta charset="utf-8">
+    <title>Game Stats</title>
+    <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js"></script>
+
+  <!-- Add the Firestore library -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js"></script>
+  </head>
+  <body>
+    <h1>Game Stats</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Game Name</th>
+          <th>Total Plays</th>
+          <th>Success Rate</th>
+          <th>Wins</th>
+          <th>Losses</th>
+        </tr>
+      </thead>
+      <tbody id="game-stats-body">
+      </tbody>
+    </table>
+    
+  <script>
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyCN9d5eRP8uyBz5TGZXL4M46NM4GqTtpMg",
+      authDomain: "lockedinclues.firebaseapp.com",
+      projectId: "lockedinclues",
+      storageBucket: "lockedinclues.appspot.com",
+      messagingSenderId: "451268923694",
+      appId: "1:451268923694:web:de2ee4bf7d100a7f2beabf",
+      measurementId: "G-K1P8EK2NCT"
+    };
+    firebase.initializeApp(firebaseConfig);
+  
+
+      // Get a reference to the gameStats collection
+      const gameStatsRef = firebase.firestore().collection('gameStats');
+
+      // Render the game stats table
+      gameStatsRef.onSnapshot((snapshot) => {
+        const gameStatsBody = document.querySelector('#game-stats-body');
+        gameStatsBody.innerHTML = '';
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          const row = `
+            <tr>
+              <td>${data.name}</td>
+              <td>${data.totalPlays}</td>
+              <td>${data.successRate.toFixed(2)}%</td>
+              <td>${data.wins}</td>
+              <td>${data.losses}</td>
+            </tr>
+          `;
+          gameStatsBody.insertAdjacentHTML('beforeend', row);
+        });
+      });
+    </script>
+  </body>
+</html>

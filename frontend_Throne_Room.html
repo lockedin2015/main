@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Throne Room</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.22.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.22.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-performance-compat.js"></script>
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <!-- Include your custom CSS and JavaScript files -->
+    <link rel="stylesheet" href="style_Throne_Room.css">
+    <script type="module" src="frontend_Throne_Room.js"></script>
+  
+  </head>
+  <body>
+    <video autoplay loop muted id="background-video">
+      <source src="https://firebasestorage.googleapis.com/v0/b/lockedinclues.appspot.com/o/backgroundfrontend%2Fmylivewallpapers.com-The-Throne-GOT.mp4?alt=media&token=cb8ffdbd-b9d8-45f4-92b1-d544e149d667" type="video/mp4">
+    </video>
+    <div id="timer" class="timer">60:00</div>
+    
+
+    <!-- Hints container -->
+    
+    <div id="hints" class="hints-container">
+      <i class="bi bi-lock"></i>
+      <i class="bi bi-lock"></i>
+      <i class="bi bi-lock"></i>
+      <i class="bi bi-lock"></i>
+      <i class="bi bi-lock"></i>
+    </div>
+
+    <div id="locks-container"></div>
+
+<div id="overlay"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const overlay = document.getElementById("overlay");
+    const timer = document.getElementById("timer");
+    const hintsContainer = document.getElementById("hints");
+    const locksContainer = document.getElementById("locks-container");
+    const wallpaper = document.getElementById("wallpaper");
+    const picturesContainer = document.getElementById("pictures-container");
+    const videoContainer = document.getElementById("video-container");
+    const textContainer = document.getElementById("text-container");
+    const numClues = 5; 
+    var numCluesReceived = 0;
+    var seconds = 0;
+    var minutes = 0;
+    var interval;
+
+    function startTimer() {
+      interval = setInterval(function() {
+        seconds++;
+        if (seconds == 60) {
+          seconds = 0;
+          minutes++;
+        }
+        timer.textContent = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+      }, 1000);
+    }
+
+    function stopTimer() {
+      clearInterval(interval);
+    }
+
+    function receiveClue() {
+      if (numCluesReceived < numClues) {
+        const lockIcon = locksContainer.children[numCluesReceived];
+        lockIcon.classList.remove("bi-lock");
+        lockIcon.classList.add("bi-unlock");
+        numCluesReceived++;
+      }
+    }
+
+    function displayPictures() {
+      wallpaper.style.display = "none";
+      picturesContainer.style.display = "block";
+    }
+
+    function displayVideo() {
+      wallpaper.style.display = "none";
+      videoContainer.style.display = "block";
+    }
+
+    function displayText() {
+      wallpaper.style.display = "none";
+      textContainer.style.display = "block";
+    }
+
+    function lockScreen() {
+      overlay.classList.add("overlay-on");
+    }
+
+    function unlockScreen() {
+      overlay.classList.remove("overlay-on");
+    }
+
+    for (var i = 0; i < numClues; i++) {
+      const lockIcon = document.createElement("i");
+      lockIcon.classList.add("bi", "bi-lock");
+      locksContainer.appendChild(lockIcon);
+    }
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+      }
+    });
+
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+    });
+
+    hintsContainer.addEventListener("click", receiveClue);
+
+    startTimer();
+  });
+</script>
+  </body>
+</html>

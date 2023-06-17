@@ -1,0 +1,105 @@
+/* Add your custom styles here */
+.container-fluid {
+  margin-top: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+#Addams_Family-win-button,
+#Addams_Family-loss-button {
+  margin-bottom: 10px;
+}
+
+.col-md-2,
+.col-md-3 {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.col-md-2 h3,
+.col-md-3 h3 {
+  margin-top: 0;
+}
+
+.chatbox {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chat-header h3 {
+  margin: 0;
+}
+
+.chat-messages {
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+#message-form {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+#message-input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+#clear-screen-btn {
+  margin-bottom: 10px;
+}
+
+#timer-controls h3,
+#audio-controls h3 {
+  margin-top: 0;
+}
+
+#clues-available {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.clue-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.clue-icon img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+#video-brief-btn {
+  margin-bottom: 10px;
+}
+
+#audio-controls button {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+#play-sound-btn {
+  margin-bottom: 10px;
+}
+
+#mute-btn {
+  margin-bottom: 10px;
+}

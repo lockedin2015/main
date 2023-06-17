@@ -1,0 +1,136 @@
+{
+  "functions": {
+    "source": "functions",
+    "ignore": ["node_modules", ".git", "firebase-debug.log", "firebase-debug.*.log"],
+    "predeploy": ["npm --prefix \"$RESOURCE_DIR\" run lint"]
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png)",
+        "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]
+      },
+      {
+        "source": "**/*.js",
+        "headers": [{"key": "Content-Type", "value": "text/javascript"}]
+      },
+      {
+        "source": "**/*.css",
+        "headers": [{"key": "Content-Type", "value": "text/css"}]
+      },
+      {
+        "source": "**/*.html",
+        "headers": [{"key": "Content-Type", "value": "text/html"}]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/cp/Throne_Room",
+        "destination": "/control_panel_Throne_Room.html"
+      },
+      {
+        "source": "/cp/The_Guardians",
+        "destination": "/control_panel_The_Guardians.html"
+      },
+      {
+        "source": "/cp/Draculas_Secret",
+        "destination": "/control_panel_Draculas_Secret.html"
+      },
+      {
+        "source": "/cp/Indiana_Jones",
+        "destination": "/control_panel_Indiana_Jones.html"
+      },
+      {
+        "source": "/cp/Paranormal_Activity",
+        "destination": "/control_Paranormal_Activity.html"
+      },
+      {
+        "source": "/cp/Lord_of_the_Rings",
+        "destination": "/control_panel_Lord_of_the_Rings.html"
+      },
+      {
+        "source": "/cp/Addams_Family",
+        "destination": "/control_panel_Addams_Family.html"
+      },
+      {
+        "source": "/cp/Sherlock_Holmes",
+        "destination": "/control_panel_Sherlock_Holmes.html"
+      },
+      {
+        "source": "/cp/The_Withcher_School",
+        "destination": "/control_panel_The_Withcher_School.html"
+      },
+      {
+        "source": "/Throne_Room",
+        "destination": "/frontend_Throne_Room.html"
+      },
+      {
+        "source": "/The_Guardians",
+        "destination": "/frontend_The_Guardians.html"
+      },
+      {
+        "source": "/Draculas_Secret",
+        "destination": "/frontend_Draculas_Secret.html"
+      },
+      {
+        "source": "/Indiana_Jones",
+        "destination": "/frontend_Indiana_Jones.html"
+      },
+      {
+        "source": "/Paranormal_Activity",
+        "destination": "/frontend_Paranormal_Activity.html"
+      },
+      {
+        "source": "/Lord_of_the_Rings",
+        "destination": "/frontend_Lord_of_the_Rings.html"
+      },
+      {
+        "source": "/Addams_Family",
+        "destination": "/frontend_Addams_Family.html"
+      },
+      {
+        "source": "/Sherlock_Holmes",
+        "destination": "/frontend_Sherlock_Holmes.html"
+      },
+      {
+        "source": "/The_Withcher_School",
+        "destination": "/frontend_The_Withcher_School.html"
+      },
+      {
+        "source": "**",
+        "destination": "/404.html"
+      }
+    ]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "auth": {"port": 9099},
+    "functions": {"port": 5001},
+    "firestore": {"port": 8080},
+    "database": {"port": 9000},
+    "hosting": {"port": 5000},
+    "pubsub": {"port": 8085},
+    "storage": {"port": 9199},
+    "eventarc": {"port": 9299},
+    "ui": {"enabled": true},
+    "singleProjectMode": true
+  },
+  "remoteconfig": {
+    "template": "remoteconfig.template.json"
+  }
+}
